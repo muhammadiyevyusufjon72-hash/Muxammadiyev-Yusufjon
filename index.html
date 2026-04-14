@@ -13,10 +13,10 @@
       --bg1:#03111f;
       --bg2:#071d33;
       --bg3:#0d2b4a;
-      --card:rgba(14, 30, 55, 0.68);
-      --border:rgba(112, 196, 255, 0.18);
+      --card:rgba(14, 30, 55, 0.76);
+      --border:rgba(112, 196, 255, 0.16);
       --text:#f5fbff;
-      --muted:rgba(220,240,255,0.76);
+      --muted:rgba(220,240,255,0.78);
       --cyan:#22d3ee;
       --blue:#38bdf8;
       --purple:#a855f7;
@@ -31,6 +31,10 @@
       scroll-behavior:smooth;
     }
 
+    html, body{
+      overflow-x:hidden;
+    }
+
     body{
       font-family:'Poppins',sans-serif;
       color:var(--text);
@@ -40,7 +44,6 @@
         radial-gradient(circle at 50% 80%, rgba(34,211,238,.08), transparent 22%),
         linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
       min-height:100vh;
-      overflow-x:hidden;
       position:relative;
     }
 
@@ -49,14 +52,14 @@
       position:fixed;
       inset:0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
       background-size:40px 40px;
       pointer-events:none;
       z-index:0;
     }
 
-    .floating-code{
+    .floating-icons{
       position:fixed;
       inset:0;
       overflow:hidden;
@@ -64,17 +67,31 @@
       z-index:0;
     }
 
-    .floating-code span{
+    .floating-icons span{
       position:absolute;
-      color:rgba(90,170,255,.12);
-      font-weight:600;
+      bottom:-100px;
+      font-size:42px;
+      opacity:0.14;
+      filter:drop-shadow(0 0 10px rgba(56,189,248,.18));
+      animation: floatIcons linear infinite;
       user-select:none;
-      animation: floatY linear infinite;
     }
 
-    @keyframes floatY{
-      from{transform:translateY(20px);}
-      to{transform:translateY(-30px);}
+    @keyframes floatIcons{
+      0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+      }
+      10%{
+        opacity:.12;
+      }
+      50%{
+        opacity:.22;
+      }
+      100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+      }
     }
 
     a{
@@ -82,18 +99,25 @@
       text-decoration:none;
     }
 
+    .container,
+    .navbar,
+    .hero,
+    section,
+    .footer{
+      position:relative;
+      z-index:1;
+    }
+
     .container{
       width:min(1120px,92%);
       margin:0 auto;
-      position:relative;
-      z-index:1;
     }
 
     .navbar{
       position:sticky;
       top:0;
       z-index:100;
-      background:rgba(3,17,31,.55);
+      background:rgba(3,17,31,.58);
       backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(255,255,255,.05);
     }
@@ -247,23 +271,24 @@
     .hero-card::before{
       content:"";
       position:absolute;
-      width:200px;
-      height:200px;
+      width:220px;
+      height:220px;
       border-radius:50%;
-      background:radial-gradient(circle, rgba(34,211,238,.25), transparent 60%);
-      top:-60px;
-      right:-30px;
-      filter:blur(6px);
+      background:radial-gradient(circle, rgba(34,211,238,.20), transparent 60%);
+      top:-70px;
+      right:-40px;
+      filter:blur(8px);
     }
 
     .profile-ring{
-      width:148px;
-      height:148px;
+      width:170px;
+      height:170px;
       border-radius:50%;
       padding:4px;
       background:linear-gradient(45deg,var(--cyan),var(--blue),var(--purple),var(--pink));
       margin-bottom:18px;
-      box-shadow:0 0 35px rgba(56,189,248,.2);
+      box-shadow:0 0 35px rgba(56,189,248,.25);
+      animation:pulseGlow 3s ease-in-out infinite;
     }
 
     .profile-ring img{
@@ -271,8 +296,13 @@
       height:100%;
       object-fit:cover;
       border-radius:50%;
-      background:#07192a;
       display:block;
+      background:#07192a;
+    }
+
+    @keyframes pulseGlow{
+      0%,100%{box-shadow:0 0 25px rgba(56,189,248,.20);}
+      50%{box-shadow:0 0 45px rgba(168,85,247,.35);}
     }
 
     .mini-role{
@@ -321,8 +351,6 @@
 
     section{
       padding:34px 0 70px;
-      position:relative;
-      z-index:1;
     }
 
     .section-head{
@@ -555,6 +583,8 @@
 
     .contact-item .icon{
       font-size:26px;
+      min-width:32px;
+      text-align:center;
     }
 
     .contact-socials{
@@ -598,8 +628,6 @@
       text-align:center;
       color:rgba(255,255,255,.62);
       border-top:1px solid rgba(255,255,255,.06);
-      position:relative;
-      z-index:1;
     }
 
     .to-top{
@@ -674,17 +702,17 @@
 </head>
 <body>
 
-  <div class="floating-code">
-    <span style="left:6%; top:18%; font-size:54px; animation-duration:8s;">0x</span>
-    <span style="left:80%; top:16%; font-size:60px; animation-duration:9s;">HTTP</span>
-    <span style="left:75%; top:32%; font-size:48px; animation-duration:7s;">UDP</span>
-    <span style="left:11%; top:72%; font-size:40px; animation-duration:8s;">npm</span>
-    <span style="left:18%; top:85%; font-size:52px; animation-duration:11s;">fn()</span>
-    <span style="left:80%; top:80%; font-size:56px; animation-duration:10s;">TCP</span>
-    <span style="left:62%; top:84%; font-size:60px; animation-duration:9s;">&lt;/&gt;</span>
-    <span style="left:30%; top:76%; font-size:58px; animation-duration:10s;">CSS</span>
-    <span style="left:7%; top:58%; font-size:44px; animation-duration:8s;">API</span>
-    <span style="left:82%; top:62%; font-size:52px; animation-duration:8s;">git</span>
+  <div class="floating-icons">
+    <span style="left:5%; animation-duration:13s;">💻</span>
+    <span style="left:14%; animation-duration:16s;">🖥️</span>
+    <span style="left:24%; animation-duration:12s;">⌨️</span>
+    <span style="left:34%; animation-duration:18s;">🧠</span>
+    <span style="left:45%; animation-duration:14s;">📱</span>
+    <span style="left:56%; animation-duration:17s;">💾</span>
+    <span style="left:66%; animation-duration:11s;">🖱️</span>
+    <span style="left:76%; animation-duration:15s;">🌐</span>
+    <span style="left:86%; animation-duration:19s;">⚙️</span>
+    <span style="left:93%; animation-duration:13s;">🧑‍💻</span>
   </div>
 
   <nav class="navbar">
@@ -696,7 +724,7 @@
         <a href="#projects">Loyihalar</a>
         <a href="#certificates">Sertifikatlar</a>
         <a href="#contact">Kontakt</a>
-        <button class="lang-btn">UZ ▼</button>
+        <button class="lang-btn" type="button">UZ ▼</button>
       </div>
     </div>
   </nav>
@@ -705,9 +733,7 @@
     <div class="container hero-box">
       <div class="reveal">
         <div class="badge">🚀 Premium Portfolio Website</div>
-        <h1>
-          Salom, men <span class="gradient-text">Yusufjon</span>
-        </h1>
+        <h1>Salom, men <span class="gradient-text">Yusufjon</span></h1>
         <p>
           Men web dasturlash va sun’iy intellekt yo‘nalishiga qiziqaman.
           Hozir <span class="typing" id="typingText">zamonaviy portfolio va web sahifalar</span>
@@ -722,7 +748,7 @@
 
       <div class="hero-card reveal">
         <div class="profile-ring">
-          <img src="https://i.imgur.com/8Km9tLL.png" alt="Profile">
+          <img src="profile.png" alt="Profile">
         </div>
         <div class="mini-role">Frontend Developer | AI Enthusiast</div>
         <div class="mini-name">Yusufjon</div>
@@ -782,9 +808,7 @@
       <div class="section-head reveal">
         <h2 class="section-title gradient-text">Ko‘nikmalarim</h2>
         <div class="section-line"></div>
-        <p class="section-sub">
-          Hozir o‘rganayotgan va ishlatayotgan asosiy texnologiyalarim.
-        </p>
+        <p class="section-sub">Hozir o‘rganayotgan va ishlatayotgan asosiy texnologiyalarim.</p>
       </div>
 
       <div class="skills-grid">
@@ -812,9 +836,7 @@
 
         <div class="glass-card reveal">
           <h3>🛠 Men ishlata olaman</h3>
-          <p>
-            Portfolio website, responsive sahifalar, GitHub Pages, loyiha taqdimoti, AI promptlar va basic web UI.
-          </p>
+          <p>Portfolio website, responsive sahifalar, GitHub Pages, loyiha taqdimoti, AI promptlar va basic web UI.</p>
           <div class="tags">
             <span class="tag">Frontend</span>
             <span class="tag">Portfolio</span>
@@ -832,9 +854,7 @@
       <div class="section-head reveal">
         <h2 class="section-title gradient-text">Mening loyihalarim</h2>
         <div class="section-line"></div>
-        <p class="section-sub">
-          Men qilgan yoki ustida ishlayotgan asosiy loyihalar.
-        </p>
+        <p class="section-sub">Men qilgan yoki ustida ishlayotgan asosiy loyihalar.</p>
       </div>
 
       <div class="projects-grid">
@@ -845,9 +865,7 @@
               <h3>O‘zbekiston Ob-havosi</h3>
               <span class="live-badge">LIVE</span>
             </div>
-            <p>
-              OpenWeatherMap API yordamida yaratilgan, viloyatlar bo‘yicha real vaqtda ob-havo ma’lumotlarini ko‘rsatuvchi loyiha.
-            </p>
+            <p>OpenWeatherMap API yordamida yaratilgan, viloyatlar bo‘yicha real vaqtda ob-havo ma’lumotlarini ko‘rsatuvchi loyiha.</p>
             <a class="project-btn" href="#">Loyihani ko‘rish →</a>
           </div>
         </div>
@@ -859,9 +877,7 @@
               <h3>Smart Service Finder</h3>
               <span class="live-badge">NEW</span>
             </div>
-            <p>
-              Foydalanuvchilar uchun turli xizmatlarni topishga yordam beradigan zamonaviy web loyiha g‘oyasi.
-            </p>
+            <p>Foydalanuvchilar uchun turli xizmatlarni topishga yordam beradigan zamonaviy web loyiha g‘oyasi.</p>
             <a class="project-btn" href="#">Loyihani ko‘rish →</a>
           </div>
         </div>
@@ -874,9 +890,7 @@
       <div class="section-head reveal">
         <h2 class="section-title gradient-text">Sertifikatlarim</h2>
         <div class="section-line"></div>
-        <p class="section-sub">
-          O‘qish va rivojlanish jarayonimdagi muhim natijalar.
-        </p>
+        <p class="section-sub">O‘qish va rivojlanish jarayonimdagi muhim natijalar.</p>
       </div>
 
       <div class="cert-grid">
@@ -887,9 +901,7 @@
           <div class="cert-body">
             <div class="cert-year">UAE & O‘zbekiston Hukumati • 2026</div>
             <h3>Five Million AI Leaders</h3>
-            <p>
-              Sun’iy intellekt tizimlarida prompt muhandisligi va zamonaviy AI yo‘nalishlarini o‘rganishga qaratilgan xalqaro dastur.
-            </p>
+            <p>Sun’iy intellekt tizimlarida prompt muhandisligi va zamonaviy AI yo‘nalishlarini o‘rganishga qaratilgan xalqaro dastur.</p>
           </div>
         </div>
 
@@ -900,9 +912,7 @@
           <div class="cert-body">
             <div class="cert-year">Respublika Tanlovi • 2024</div>
             <h3>Mirzo Ulug‘bek Vorislari</h3>
-            <p>
-              Innovatsion g‘oyalar va texnologik ishlanmalar bo‘yicha tanlovda ro‘yxatdan o‘tish va faol ishtirok etish uchun berilgan sertifikat.
-            </p>
+            <p>Innovatsion g‘oyalar va texnologik ishlanmalar bo‘yicha tanlovda ro‘yxatdan o‘tish va faol ishtirok etish uchun berilgan sertifikat.</p>
           </div>
         </div>
       </div>
@@ -914,9 +924,7 @@
       <div class="section-head reveal">
         <h2 class="section-title gradient-text">Bog‘lanish</h2>
         <div class="section-line"></div>
-        <p class="section-sub">
-          Men bilan quyidagi platformalar orqali bog‘lanishingiz mumkin.
-        </p>
+        <p class="section-sub">Men bilan quyidagi platformalar orqali bog‘lanishingiz mumkin.</p>
       </div>
 
       <div class="contact-grid">
@@ -953,8 +961,8 @@
           </p>
 
           <div class="contact-socials">
-            <a class="social-btn telegram" href="https://t.me/username" target="_blank">✈ Telegram</a>
-            <a class="social-btn instagram" href="https://instagram.com/" target="_blank">📷 Instagram</a>
+            <a class="social-btn telegram" href="https://t.me/username" target="_blank" rel="noopener noreferrer">✈ Telegram</a>
+            <a class="social-btn instagram" href="https://instagram.com/" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
           </div>
         </div>
       </div>
@@ -965,7 +973,7 @@
     © 2026 — <span class="gradient-text">Yusufjon</span> tomonidan yaratilgan.
   </div>
 
-  <button class="to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+  <button class="to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Yuqoriga">↑</button>
 
   <script>
     const words = [
