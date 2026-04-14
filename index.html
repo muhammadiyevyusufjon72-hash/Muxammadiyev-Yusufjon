@@ -5,44 +5,79 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yusufjon Portfolio</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
-body {
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #2c5364);
   color: white;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .container {
-  padding: 50px;
+  padding: 80px 20px;
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+p {
+  opacity: 0.8;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .card {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
-  margin: 20px auto;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  padding: 25px;
   width: 300px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  transition: 0.3s;
+  border-radius: 20px;
+  transition: 0.4s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px) scale(1.05);
 }
 
 button {
-  padding: 10px 20px;
+  margin-top: 40px;
+  padding: 12px 30px;
   border: none;
-  border-radius: 10px;
-  background: #00c6ff;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
   color: white;
+  font-size: 16px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.avatar {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid white;
 }
 </style>
 </head>
@@ -50,21 +85,32 @@ button {
 <body>
 
 <div class="container">
-  <h1>👋 Salom, men Yusufjon</h1>
-  <p>Men dasturchiman va AI bilan ishlayman 🚀</p>
 
-  <div class="card">
-    <h3>💻 Loyihalar</h3>
-    <p>Smart Service Finder</p>
-    <p>AI video generator</p>
+  <img src="https://i.imgur.com/8Km9tLL.png" class="avatar">
+
+  <h1>👋 Yusufjon</h1>
+  <p>Dasturchi | AI Developer 🚀</p>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>💻 Loyihalar</h3>
+      <p>Smart Service Finder</p>
+      <p>AI Video Generator</p>
+      <p>Matritsa o‘yini</p>
+    </div>
+
+    <div class="card">
+      <h3>📞 Kontakt</h3>
+      <p>Telegram: @username</p>
+    </div>
+
   </div>
 
-  <div class="card">
-    <h3>📞 Kontakt</h3>
-    <p>Telegram: @username</p>
-  </div>
+  <button onclick="alert('Bog‘lanish uchun Telegramga yozing!')">
+    Bog‘lanish
+  </button>
 
-  <button>Bog‘lanish</button>
 </div>
 
 </body>
