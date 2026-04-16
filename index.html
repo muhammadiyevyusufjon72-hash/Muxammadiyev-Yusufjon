@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muxammadiyev Yusufjon</title>
+  <title>Yusufjon Portfolio</title>
   <meta name="description" content="Muhammadiyev Yusufjon Siddiq o‘g‘li premium portfolio website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,20 +15,15 @@
       --bg-2:#071d33;
       --bg-3:#0d2b4a;
       --card:rgba(14,30,55,.78);
-      --card-2:rgba(18,36,63,.88);
       --text:#f4fbff;
       --muted:rgba(225,240,255,.76);
-      --line:rgba(255,255,255,.09);
       --cyan:#22d3ee;
       --blue:#38bdf8;
       --purple:#a855f7;
       --pink:#ec4899;
       --green:#10b981;
-      --yellow:#f59e0b;
       --shadow:0 18px 50px rgba(0,0,0,.35);
       --radius:28px;
-      --radius-md:20px;
-      --radius-sm:16px;
       --max:1180px;
     }
 
@@ -145,12 +140,11 @@
       text-decoration:none;
     }
 
-    img{
+    img, video{
       max-width:100%;
       display:block;
     }
 
-    /* loading */
     .loading-screen{
       position:fixed;
       inset:0;
@@ -194,13 +188,12 @@
       overflow:hidden;
     }
 
-    .loader-inner img{
+    .loader-inner video{
       width:74px;
       height:74px;
-      object-fit:contain;
+      object-fit:cover;
       border-radius:50%;
       background:#fff;
-      padding:8px;
     }
 
     .loading-title{
@@ -237,7 +230,6 @@
       to{transform:rotate(360deg);}
     }
 
-    /* navbar */
     .navbar{
       position:sticky;
       top:0;
@@ -342,7 +334,6 @@
       background:rgba(255,255,255,.08);
     }
 
-    /* common */
     section{
       padding:40px 0 80px;
       position:relative;
@@ -381,7 +372,6 @@
       font-size:16px;
     }
 
-    /* hero */
     .hero{
       padding:72px 0 40px;
     }
@@ -476,7 +466,6 @@
       background:rgba(255,255,255,.1);
     }
 
-    /* cards */
     .card,
     .hero-card{
       background:var(--card);
@@ -528,7 +517,6 @@
       pointer-events:none;
     }
 
-    /* profile */
     .profile-top{
       display:flex;
       align-items:center;
@@ -585,16 +573,17 @@
       box-shadow:
         0 0 18px rgba(255,0,80,.22),
         0 0 30px rgba(168,85,247,.18);
+      position:relative;
+      overflow:hidden;
     }
 
-    .edu-logo-ring img{
+    .edu-logo-ring video{
       width:100%;
       height:100%;
-      object-fit:contain;
+      object-fit:cover;
       border-radius:50%;
       display:block;
       background:#fff;
-      padding:10px;
     }
 
     @keyframes ringMove{
@@ -677,7 +666,17 @@
       font-size:13px;
     }
 
-    /* grids */
+    .reveal{
+      opacity:0;
+      transform:translateY(28px);
+      transition:all .7s ease;
+    }
+
+    .reveal.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
     .cards-3,
     .skills-grid,
     .projects-grid,
@@ -704,7 +703,6 @@
       font-size:15px;
     }
 
-    /* skills */
     .skill{
       margin-bottom:18px;
     }
@@ -754,7 +752,6 @@
       color:#d7f7ff;
     }
 
-    /* filter */
     .filter-buttons{
       display:flex;
       gap:10px;
@@ -844,7 +841,6 @@
       background:rgba(34,211,238,.10);
     }
 
-    /* timeline */
     .timeline{
       position:relative;
       max-width:900px;
@@ -891,7 +887,6 @@
       margin-bottom:8px;
     }
 
-    /* cert */
     .cert-card{
       padding:0;
       overflow:hidden;
@@ -943,7 +938,6 @@
       font-weight:700;
     }
 
-    /* contact */
     .contact-item{
       display:flex;
       align-items:center;
@@ -959,11 +953,6 @@
       font-size:26px;
       min-width:32px;
       text-align:center;
-    }
-
-    .contact-item strong{
-      display:inline-block;
-      margin-bottom:2px;
     }
 
     .contact-socials{
@@ -1034,7 +1023,6 @@
       margin-top:10px;
     }
 
-    /* footer */
     .footer{
       padding:30px 0 44px;
       text-align:center;
@@ -1060,7 +1048,6 @@
       box-shadow:var(--shadow);
     }
 
-    /* modal */
     .modal{
       position:fixed;
       inset:0;
@@ -1110,7 +1097,6 @@
       cursor:pointer;
     }
 
-    /* reveal */
     .reveal{
       opacity:0;
       transform:translateY(28px);
@@ -1122,7 +1108,6 @@
       transform:translateY(0);
     }
 
-    /* responsive */
     @media (max-width: 1080px){
       .cert-grid{
         grid-template-columns:repeat(2,1fr);
@@ -1190,10 +1175,12 @@
   <div class="loading-screen" id="loadingScreen">
     <div class="loader-ring">
       <div class="loader-inner">
-        <img src="logo.png" alt="Logo">
+        <video autoplay muted loop playsinline>
+          <source src="logo.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
-    <div class="loading-title">Muxammadiyev Yusufjon</div>
+    <div class="loading-title">Yusufjon Portfolio</div>
     <div class="loading-sub">Sayt yuklanmoqda...</div>
   </div>
 
@@ -1226,7 +1213,7 @@
 
   <nav class="navbar">
     <div class="container nav-wrap">
-      <div class="logo">Muxammadiyev<span>.Yusufjon</span></div>
+      <div class="logo">Yusufjon<span>.portfolio</span></div>
 
       <div class="nav-right">
         <div class="nav-links">
@@ -1255,7 +1242,7 @@
       <div class="reveal">
         <div class="badge" data-i18n="hero_badge">🚀 Premium Portfolio Website</div>
         <h1>
-          <span data-i18n="hero_title_1">Assalomu alaykum, men</span>
+          <span data-i18n="hero_title_1">Salom, men</span>
           <span class="gradient-text">Yusufjon</span>
         </h1>
         <p>
@@ -1277,7 +1264,9 @@
           </div>
 
           <div class="edu-logo-ring">
-            <img src="logo.png" alt="ISFT logo">
+            <video autoplay muted loop playsinline>
+              <source src="logo.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
 
@@ -1288,7 +1277,7 @@
         <div class="mini-role" data-i18n="mini_role">Frontend Developer | AI Enthusiast</div>
         <div class="mini-name">Muhammadiyev Yusufjon Siddiq o‘g‘li</div>
         <div class="mini-desc" data-i18n="mini_desc">
-          Men ISFT institutining Axborot tizimlari va texnologiyalari yo‘nalishi 2-kurs talabasiman.
+          Men ISFT institutining Axborot tizimlari va texnologiyalari yo‘nalishi 2-kurs talabasiyman.
           Web development, zamonaviy portfolio saytlar va sun’iy intellekt yo‘nalishiga qiziqaman.
           Hozir o‘z ustimda ishlash, foydali loyihalar yaratish va kuchli IT mutaxassisi bo‘lish sari intilyapman.
         </div>
@@ -1317,7 +1306,7 @@
         <h2 class="section-title" data-i18n="about_title">O‘zim haqimda</h2>
         <div class="section-line"></div>
         <p class="section-sub" data-i18n="about_sub">
-          Men, Muhammadiyev Yusufjon Siddiq o‘g‘li, ISFT institutining Axborot tizimlari va texnologiyalari yo‘nalishi 2-kurs talabasiman.
+          Men, Muhammadiyev Yusufjon Siddiq o‘g‘li, ISFT institutining Axborot tizimlari va texnologiyalari yo‘nalishi 2-kurs talabasiyman.
           Web development, UI dizayn, portfolio saytlar va sun’iy intellekt yo‘nalishiga qiziqaman.
           Maqsadim — foydali loyihalar yaratish, tajribamni oshirish va kuchli IT mutaxassisi bo‘lish.
         </p>
@@ -1617,7 +1606,7 @@
   </section>
 
   <div class="footer">
-    © 2026 — <span class="gradient-text">Muxammadiyev Yusufjon</span> <span data-i18n="footer_text">tomonidan yaratilgan.</span>
+    © 2026 — <span class="gradient-text">Yusufjon</span> <span data-i18n="footer_text">tomonidan yaratilgan.</span>
   </div>
 
   <button class="to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Yuqoriga">↑</button>
@@ -1640,7 +1629,7 @@
         nav_contact: "Kontakt",
 
         hero_badge: "🚀 Premium Portfolio Website",
-        hero_title_1: "Assalomu alaykum, men",
+        hero_title_1: "Salom, men",
         hero_desc_1: "Men web dasturlash va sun’iy intellekt yo‘nalishiga qiziqaman. Hozir",
         hero_desc_2: "ustida ishlayapman.",
         hero_btn_1: "💻 Loyihalarni ko‘rish",
@@ -1655,7 +1644,7 @@
         stat_motivation: "Motivatsiya",
 
         about_title: "O‘zim haqimda",
-        about_sub: "Men, Muhammadiyev Yusufjon Siddiq o‘g‘li, ISFT institutining Axborot tizimlari va texnologiyalari yo‘nalishi 2-kurs talabasiman. Web development, UI dizayn, portfolio saytlar va sun’iy intellekt yo‘nalishiga qiziqaman. Maqsadim — foydali loyihalar yaratish, tajribamni oshirish va kuchli IT mutaxassisi bo‘lish.",
+        about_sub: "Men, Muhammadiyev Yusufjon Siddiq o‘g‘li, ISFT institutining Axborot tizimlari va texnologiyalari yo‘nalishi 2-kurs talabasiyman. Web development, UI dizayn, portfolio saytlar va sun’iy intellekt yo‘nalishiga qiziqaman. Maqsadim — foydali loyihalar yaratish, tajribamni oshirish va kuchli IT mutaxassisi bo‘lish.",
         about_goal_title: "🎯 Maqsadim",
         about_goal_text: "Kuchli IT mutaxassis bo‘lish, foydali servislar yaratish va real loyihalarda ishlash.",
         about_interest_title: "🧠 Qiziqishlarim",
